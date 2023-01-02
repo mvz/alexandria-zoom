@@ -22,11 +22,12 @@ Gem::Specification.new do |s|
   s.metadata["rubygems_mfa_required"] = "true"
 
   s.files = File.read("Manifest.txt").split
-  s.extensions = "ext/extconf.rb"
+  s.extensions = "ext/zoom/extconf.rb"
 
   s.add_dependency "pkg-config", "~> 1.5.1"
 
   s.add_development_dependency "rake", "~> 13.0"
+  s.add_development_dependency "rake-compiler", "~> 1.2"
   s.add_development_dependency "rake-manifest", "~> 0.2.0"
   s.add_development_dependency "rubocop", "~> 1.41"
   s.add_development_dependency "test-unit", "~> 3.3"

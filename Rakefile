@@ -7,8 +7,8 @@ require "rake/testtask"
 require "rdoc/task"
 require "rake/manifest/task"
 require "rake/packagetask"
+require "rake/extensiontask"
 require "rubygems/package_task"
-require "mkmf"
 
 CLEAN.include "**/*.o"
 CLEAN.include "**/*.so"
@@ -16,14 +16,9 @@ CLEAN.include "**/Makefile"
 CLEAN.include "**/*.log"
 CLEAN.include "pkg"
 
-task default: [:build, :test, :package, "manifest:check"]
+task default: [:compile, :test, :package, "manifest:check"]
 
-task build: [:clean] do
-  Dir.chdir("ext") do
-    system("ruby", "extconf.rb")
-    system("make")
-  end
-end
+Rake::ExtensionTask.new("zoom")
 
 task :package do
   system("gem build alexandria-zoom.gemspec")
@@ -42,10 +37,8 @@ Rake::TestTask.new("live_test") do |t|
 end
 
 Rake::Manifest::Task.new do |t|
-  t.patterns = ["ext/*.c",
-                "ext/*.h",
-                "ext/*.rb",
-                "sample/**/*",
+  t.patterns = ["ext/**/*.{c,h,rb}",
+                "sample/**/*.rb",
                 "README.md", "ChangeLog", "Makefile", "LICENSE"]
 end
 
