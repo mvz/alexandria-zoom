@@ -177,6 +177,8 @@ Init_zoom_record (VALUE mZoom)
     VALUE c;
     
     c = rb_define_class_under (mZoom, "Record", rb_cObject); 
+    rb_undef_alloc_func(c);
+
     rb_undef_method (CLASS_OF (c), "new");
 
     rb_define_method (c, "database", rbz_record_database, -1);

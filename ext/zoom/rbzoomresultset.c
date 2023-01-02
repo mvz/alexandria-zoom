@@ -244,6 +244,8 @@ Init_zoom_resultset (VALUE mZoom)
     VALUE c;
     
     c = rb_define_class_under (mZoom, "ResultSet", rb_cObject); 
+    rb_undef_alloc_func(c);
+
     rb_undef_method (CLASS_OF (c), "new");
     rb_define_method (c, "set_option", rbz_resultset_set_option, 2);
     rb_define_method (c, "get_option", rbz_resultset_get_option, 1);

@@ -115,6 +115,8 @@ Init_zoom_query (VALUE mZoom)
     VALUE c;
 
     c = rb_define_class_under (mZoom, "Query", rb_cObject); 
+    rb_undef_alloc_func(c);
+
     rb_define_singleton_method (c, "new_prefix", rbz_query_new_prefix, 1);
     rb_define_singleton_method (c, "new_cql", rbz_query_new_cql, 1);
     rb_define_singleton_method (c, "new_sort_by", rbz_query_new_sort_by, 1);
