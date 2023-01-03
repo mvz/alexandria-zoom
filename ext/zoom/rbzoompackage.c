@@ -159,6 +159,7 @@ Init_zoom_package (VALUE mZoom)
     VALUE c;
     
     c = rb_define_class_under (mZoom, "Package", rb_cObject); 
+    rb_undef_alloc_func(c);
 
 	/* Remove the default constructor to force initialization through Connection#package. */
     rb_undef_method (CLASS_OF (c), "new");

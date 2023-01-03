@@ -300,6 +300,8 @@ Init_zoom_connection (VALUE mZoom)
     VALUE c;
 
     c = rb_define_class_under (mZoom, "Connection", rb_cObject); 
+    rb_undef_alloc_func(c);
+
     rb_define_singleton_method (c, "open", rbz_connection_open, -1);
     rb_define_singleton_method (c, "new", rbz_connection_new, -1);
     rb_define_method (c, "connect", rbz_connection_connect, -1);
