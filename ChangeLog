@@ -1,6 +1,13 @@
+v0.6.0 Fri Apr 28 21:56:11 CEST 2023
+  - Support Ruby 2.7 through 3.2
+  - Use pkg-config instead of yaz-config to get compiler and linker flags for YAZ
+  - Created forked gem 'alexandria-zoom'
+  - Update gem infrastructure
+  - Silence warnings regarding allocator functions for T_DATA classes on Ruby 3.2
+
 v0.5.0 Sat Aug 15 11:39:00 EST 2015
-	- Added support for Ruby 1.9.2.
-	- Gemspec and build tooling improvements.
+  - Added support for Ruby 1.9.2.
+  - Gemspec and build tooling improvements.
 
 v0.4.1 Tue Nov 20 08:05:53 EST 2007 
   - record retrieval has changed with batch_download branch merged into trunk.

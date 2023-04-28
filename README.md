@@ -23,19 +23,16 @@ Requirements
         script before building YAZ.  Ruby/ZOOM requires a YAZ shared library 
         and YAZ does not build it by default. 
 
-Build from Source
+Install
 -------
 
-    0. checkout out code from git at github
-    1. install Rake
-    2. rake 
-    3. gem install pkg/zoom-*.gem
+    0. gem install alexandria-zoom
 
 Build from Source using bundler
 -----------------
 
     0. add to your Gemfile:
-    gem 'zoom', :git => 'https://github.com/bricestacey/ruby-zoom.git'
+    gem "alexandria-zoom"
     1. bundle
 
 Samples
