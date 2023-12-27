@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   TEXT
 
   s.license = "LGPL-2.1"
-  s.required_ruby_version = ">= 2.7.0"
+  s.required_ruby_version = ">= 3.0.0"
 
   s.metadata["rubygems_mfa_required"] = "true"
 
