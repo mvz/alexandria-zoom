@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.files = File.read("Manifest.txt").split
   spec.extensions = "ext/zoom/extconf.rb"
 
-  spec.add_dependency "pkg-config", "~> 1.5.1"
+  spec.add_dependency "pkg-config", "~> 1.6.0"
 
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rake-compiler", "~> 1.2"
