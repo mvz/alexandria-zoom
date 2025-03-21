@@ -9,6 +9,7 @@ ext/zoom/rbzoomrecord.c
 ext/zoom/rbzoomresultset.c
 sample/hello.rb
 sample/needle.rb
+CHANGELOG.md
 README.md
-ChangeLog
+ChangeLog.old
 LICENSE

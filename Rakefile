@@ -3,12 +3,11 @@
 require "rubygems"
 require "rake"
 require "rake/clean"
+require "bundler/gem_tasks"
 require "rake/testtask"
 require "rdoc/task"
 require "rake/manifest/task"
-require "rake/packagetask"
 require "rake/extensiontask"
-require "rubygems/package_task"
 
 CLEAN.include "**/*.o"
 CLEAN.include "**/*.so"
@@ -39,7 +38,7 @@ end
 Rake::Manifest::Task.new do |t|
   t.patterns = ["ext/**/*.{c,h,rb}",
                 "sample/**/*.rb",
-                "README.md", "ChangeLog", "Makefile", "LICENSE"]
+                "*.md", "ChangeLog.old", "LICENSE"]
 end
 
 Rake::RDocTask.new do |rd|

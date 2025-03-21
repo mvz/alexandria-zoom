@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RUBY_ZOOM_VERSION = "0.6.0"
+RUBY_ZOOM_VERSION = "0.6.1"
 
 Gem::Specification.new do |spec|
   spec.name = "alexandria-zoom"
