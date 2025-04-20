@@ -2,3 +2,7 @@ Gemfile.lock
 lib/zoom.so
 tmp/
 *.gem
+test/zebra/live_test.log
+test/zebra/lock/*..LCK
+test/zebra/lock/zebrasrv.pid
+test/zebra/register/*.mf
