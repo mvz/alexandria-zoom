@@ -15,13 +15,9 @@ CLEAN.include "**/Makefile"
 CLEAN.include "**/*.log"
 CLEAN.include "pkg"
 
-task default: [:test, :package, "manifest:check"]
+task default: [:test, :build]
 
 Rake::ExtensionTask.new("zoom")
-
-task :package do
-  system("gem build alexandria-zoom.gemspec")
-end
 
 namespace :test do
   Rake::TestTask.new("unit") do |t|
@@ -54,6 +50,8 @@ Rake::Manifest::Task.new do |t|
                 "sample/**/*.rb",
                 "*.md", "ChangeLog.old", "LICENSE"]
 end
+
+task build: "manifest:check"
 
 Rake::RDocTask.new do |rd|
   rd.main = "README.md"
