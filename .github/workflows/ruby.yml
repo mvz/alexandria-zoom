@@ -41,10 +41,10 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - name: Run tests
-        run: bundle exec rake
-      - name: Run live test
-        run: bundle exec rake live_test
+      - name: Run unit tests
+        run: bundle exec rake test:unit
+      - name: Run integration tests
+        run: bundle exec rake test:integration
 
   lint:
 

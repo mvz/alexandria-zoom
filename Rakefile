@@ -15,7 +15,7 @@ CLEAN.include "**/Makefile"
 CLEAN.include "**/*.log"
 CLEAN.include "pkg"
 
-task default: [:compile, :test, :package, "manifest:check"]
+task default: [:test, :package, "manifest:check"]
 
 Rake::ExtensionTask.new("zoom")
 
@@ -23,17 +23,31 @@ task :package do
   system("gem build alexandria-zoom.gemspec")
 end
 
-Rake::TestTask.new("test") do |t|
-  t.test_files = FileList["test/*_test.rb"]
-  t.ruby_opts = ["-r test/unit", "-I ext", "-r zoom"]
-  t.verbose = true
+namespace :test do
+  Rake::TestTask.new("unit") do |t|
+    t.test_files = FileList["test/unit/*_test.rb"]
+    t.ruby_opts = ["-r test/unit", "-I ext", "-r zoom"]
+    t.verbose = true
+  end
+
+  Rake::TestTask.new("integration") do |t|
+    t.test_files = FileList["test/integration/*_test.rb"]
+    t.ruby_opts = ["-r test/unit", "-I ext", "-r zoom"]
+    t.verbose = true
+  end
+
+  Rake::TestTask.new("external") do |t|
+    t.test_files = FileList["test/external/*_test.rb"]
+    t.ruby_opts = ["-r test/unit", "-I ext", "-r zoom"]
+    t.verbose = true
+  end
+
+  task unit: :compile
+  task integration: :compile
+  task external: :compile
 end
 
-Rake::TestTask.new("live_test") do |t|
-  t.test_files = FileList["test/*_live.rb"]
-  t.ruby_opts = ["-r test/unit", "-I ext", "-r zoom"]
-  t.verbose = true
-end
+task test: ["test:unit", "test:integration", "test:external"]
 
 Rake::Manifest::Task.new do |t|
   t.patterns = ["ext/**/*.{c,h,rb}",
