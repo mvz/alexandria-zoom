@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.2 / 2026-05-09
+
+* Support Ruby 3.2 through 4.0, dropping support for Ruby 3.1
+  ([#15] and [#20] by [mvz])
+
+[#15]: https://github.com/mvz/alexandria-zoom/pull/15
+[#20]: https://github.com/mvz/alexandria-zoom/pull/20
+
 ## 0.6.1 / 2025-03-21
 
 * Support Ruby 3.1 through 3.4 ([#6] and [#8] by [mvz])
